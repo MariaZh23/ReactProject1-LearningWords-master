@@ -1,0 +1,11 @@
+.slider-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .prev-card, .next-card{
+        width: 4em;
+        height: 4em;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+}

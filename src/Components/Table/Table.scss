@@ -1,0 +1,48 @@
+@import '/src/style/templates';
+@import '/src/style/vars';
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5em;
+    .table-body {
+        width: 100%;
+        margin: 5px;
+        border: $border-color;
+        .table-head-items{
+            background-color: antiquewhite;
+            border-bottom: $border-color;
+        }
+        .table-col-number{
+            background-color: antiquewhite;
+            border-right: $border-color;
+        }
+        .table-col-english, .table-col-transcription, .table-col-russian, .table-col-tags, .table-col-comments{
+            border-right: $border-color;
+        }
+    }
+}
+tbody td{
+    border-top: $border-color;
+}
+.edit-btn{
+    @include table-btn();
+    background-image: url(/src/assets/button_edit.svg);
+}
+.cancel-btn{
+    @include table-btn();
+    background-image: url(/src/assets/button_cancel.svg);
+}
+.save-btn{
+    @include table-btn();
+    background-image: url(/src/assets/button_save.svg);
+}
+.delete-btn{
+    @include table-btn();
+    background-image: url(/src/assets/button_delete.svg);
+}
+.editing-buttons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
