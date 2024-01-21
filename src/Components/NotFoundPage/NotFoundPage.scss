@@ -1,0 +1,25 @@
+.page-container{
+    width: 100wv;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left:-4em;
+    background-image: url(/src/assets/not-found-page-background.JPG);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 4px solid rgb(216, 189, 237);
+    border-radius: 15px;
+    .middle-size-text{
+        font-size: 2em;
+        font-weight: 500;
+        font-style: italic;
+    }
+    .small-size-text{
+        font-size: 1em;
+    }
+    .the-biggiest-size-text{
+        margin: 0;
+        font-size: 8em;
+        font-weight: 800;
+    }
+}

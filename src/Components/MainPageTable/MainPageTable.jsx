@@ -1,11 +1,9 @@
-import "./TablePageMain.scss";
-import Slider from "../Slider/Slider";
+import "./MainPageTable.scss";
 import Table from "../Table/Table";
 
-export default function TablePageMain() {
+export default function MainPageTable() {
   return (
     <div>
-      <Slider />
       <h1>Таблица изучаемых слов</h1>
       <Table />
     </div>

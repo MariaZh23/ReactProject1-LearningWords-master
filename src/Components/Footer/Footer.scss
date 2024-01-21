@@ -1,3 +1,19 @@
 @import '/src/style/templates';
 @import '/src/style/vars';
 
+.footer-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+        .footer-img{
+            width: 5%;
+    }
+    .copyright{
+        display: flex;
+        align-self: flex-end;
+        p{
+            margin: 0;
+        }
+    }
+}
