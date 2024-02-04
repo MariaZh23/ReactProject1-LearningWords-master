@@ -1,6 +1,6 @@
 import "../Flashcard/FlashCard.scss";
 import { useState, useEffect } from "react";
-export default function Flashcard({ currentCard }) {
+export default function Flashcard({ currentCard, setWordsCount }) {
   const [showTranslation, setShowTranslation] = useState(false);
   useEffect(() => {
     setShowTranslation(false);
@@ -8,6 +8,7 @@ export default function Flashcard({ currentCard }) {
   );
   const showTranslationBtn = () => {
     setShowTranslation(true);
+    setWordsCount((prevCount)=> prevCount + 1);
   };
   return (
     <div className="flash-card-container">

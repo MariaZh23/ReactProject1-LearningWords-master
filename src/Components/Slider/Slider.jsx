@@ -12,11 +12,18 @@ export default function Slider () {
     const showPrevCard = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + totalCards) % totalCards);
   };
+  const [wordsCount, setWordsCount] = useState(0);
   return (
-    <div className='slider-container'>
-      <button className='prev-card' onClick={showPrevCard}>◄</button>
-      <Flashcard currentCard={wordsData[currentIndex]}/>
-      <button className='next-card'  onClick={showNextCard}>►</button>
+    <div>
+      <div className='slider-container'>
+        <button className='prev-card' onClick={showPrevCard}>◄</button>
+        <Flashcard currentCard={wordsData[currentIndex]} setWordsCount={setWordsCount}/>
+        <button className='next-card'  onClick={showNextCard}>►</button>
+      </div>
+      <div className='wordsCounter'>
+        <img src="/src/assets/thumb-up.svg" alt="Well done" className='thumbUp'/>
+        <p className='wordsCounterInfo'>Изучено слов: {wordsCount}</p>
+      </div>
     </div>
   )
 }

@@ -3,15 +3,14 @@
 
 .footer-container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: aliceblue;
         .footer-img{
-            width: 5%;
+            width: 10%;
     }
     .copyright{
-        display: flex;
-        align-self: flex-end;
         p{
             margin: 0;
         }

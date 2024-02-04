@@ -9,3 +9,18 @@
         cursor: pointer;
     }
 }
+.wordsCounter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5em;
+    gap: 1em;
+    background-color: rgb(157, 229, 229);
+    .thumbUp{
+        width: 60px;
+        height: 60px;
+    }
+    .wordsCounterInfo{
+        font: 2em sans-serif;
+    }
+}
