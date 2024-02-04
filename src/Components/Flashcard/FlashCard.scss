@@ -14,7 +14,7 @@
         min-height: 300px;
         border: $border-color;
         border-radius: 1em;
-        background-color: antiquewhite;
+        background-color: rgb(202, 235, 238);
         font-size: 24px;
         .flash-card-russian{
             font-size: 1.6em;
@@ -25,10 +25,9 @@
             height: 2.5em;
             border-radius: 0.625em;
             background-size: cover;
-            background: linear-gradient(to right, #47a763, #69eaf4);
+            background: linear-gradient(to right, #98e9b1, #9aeff5);
             cursor: pointer;
             font-size: 1em;
-            color: aliceblue;
         }
     }
 }

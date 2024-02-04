@@ -17,7 +17,7 @@ export default function Slider () {
     <div>
       <div className='slider-container'>
         <button className='prev-card' onClick={showPrevCard}>◄</button>
-        <Flashcard currentCard={wordsData[currentIndex]} setWordsCount={setWordsCount}/>
+        <Flashcard key={currentIndex} currentCard={wordsData[currentIndex]} setWordsCount={setWordsCount}/>
         <button className='next-card'  onClick={showNextCard}>►</button>
       </div>
       <div className='wordsCounter'>

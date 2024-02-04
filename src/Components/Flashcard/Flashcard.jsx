@@ -1,11 +1,12 @@
 import "../Flashcard/FlashCard.scss";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 export default function Flashcard({ currentCard, setWordsCount }) {
-  const [showTranslation, setShowTranslation] = useState(false);
+  const showTranslationBtnRef = useRef(null);
   useEffect(() => {
-    setShowTranslation(false);
+    showTranslationBtnRef.current.focus();
     }, [currentCard]
   );
+  const [showTranslation, setShowTranslation] = useState(false);
   const showTranslationBtn = () => {
     setShowTranslation(true);
     setWordsCount((prevCount)=> prevCount + 1);
@@ -22,7 +23,7 @@ export default function Flashcard({ currentCard, setWordsCount }) {
         )}
         {!showTranslation && (
           <div>
-            <button className="flash-card-btn" onClick={showTranslationBtn}>
+            <button ref={showTranslationBtnRef} className="flash-card-btn" onClick={showTranslationBtn}>
               Показать перевод
             </button>
           </div>

@@ -1,14 +1,9 @@
 .page-container{
     width: 100wv;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding-left:-4em;
-    background-image: url(/src/assets/not-found-page-background.JPG);
-    background-size: cover;
-    background-repeat: no-repeat;
-    border: 4px solid rgb(216, 189, 237);
-    border-radius: 15px;
     .middle-size-text{
         font-size: 2em;
         font-weight: 500;
@@ -21,5 +16,9 @@
         margin: 0;
         font-size: 8em;
         font-weight: 800;
+    }
+    .londonImg{
+        width: 40%;
+        border-radius: 45px;
     }
 }
