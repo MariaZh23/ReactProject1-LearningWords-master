@@ -17,7 +17,37 @@ export default function Table() {
         setEditedWord(wordToEdit);
     };
     const saveBtn = () => {
-        setEditingRow(null);
+        let errors = false;
+        if (editedWord.english.trim() === "") {
+            document.getElementsByName("english")[0].classList.add('invalid-input');
+            errors = true;
+        } else {
+            document.getElementsByName("english")[0].classList.remove('invalid-input');
+        }
+        if (editedWord.transcription.trim() === "") {
+            document.getElementsByName("transcription")[0].classList.add('invalid-input');
+            errors = true;
+        } else {
+             document.getElementsByName("transcription")[0].classList.remove('invalid-input');
+        }
+        if (editedWord.russian.trim() === "") {
+            document.getElementsByName("russian")[0].classList.add('invalid-input');
+            errors = true;
+        } else {
+            document.getElementsByName("russian")[0].classList.remove('invalid-input');
+        }
+        if (editedWord.tags.trim() === "") {
+            document.getElementsByName("tags")[0].classList.add('invalid-input');
+            errors = true;
+        } else {
+            document.getElementsByName("tags")[0].classList.remove('invalid-input');
+        }
+        if (errors) {
+            alert("Ошибка: Пожалуйста, заполните все поля");
+        } else {
+            console.log("Слово успешно отредактировано:", editedWord);
+            setEditingRow(null);
+        }
     };
     const cancelBtn = () => {
         setEditingRow(null);
@@ -25,89 +55,91 @@ export default function Table() {
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setEditedWord((prevWord) => ({
-        ...prevWord,
-        [name]: value
+            ...prevWord, [name]: value
         }));
+        e.target.classList.remove('invalid-input');
     };
+
     return (
     <div className='table-container'>
-    <table className='table-body'>
-    <thead className='table-head'>
-        <tr className='table-head-items'>
-            <th className='table-col-number'>Номер</th>
-            <th className='table-col-english'>Слово</th>
-            <th className='table-col-transcription'>Транскрипция</th>
-            <th className='table-col-russian'>Перевод</th>
-            <th className='table-col-tags'>Тема</th>
-            <th className='table-col-comments'>Комментарии</th>
-            <th className='table-col-actions'>Действия</th> 
-        </tr>
-    </thead>
-    <tbody>
-        {wordsData.map((word, index) => (
-            <tr key={word.id}>
-                <td className='table-col-number'>{index + 1}</td>
-                <td className='table-col-english'> {editingRow === word.id ? (
-                    <input
+        <table className='table-body'>
+            <thead className='table-head'>
+                <tr className='table-head-items'>
+                    <th className='table-col-number'>Номер</th>
+                    <th className='table-col-english'>Слово</th>
+                    <th className='table-col-transcription'>Транскрипция</th>
+                    <th className='table-col-russian'>Перевод</th>
+                    <th className='table-col-tags'>Тема</th>
+                    <th className='table-col-comments'>Комментарии</th>
+                    <th className='table-col-actions'>Действия</th> 
+                </tr>
+            </thead>
+            <tbody>
+                {wordsData.map((word, index) => (
+                    <tr key={word.id}>
+                    <td className='table-col-number'>{index + 1}</td>
+                    <td className='table-col-english'> 
+                        {editingRow === word.id ? (
+                        <input
                         type="text"
                         name="english"
                         value={editedWord.english}
                         onChange={handleInputChange}/>
-                ) : (word.english)}
-                </td>
-                <td className='table-col-transcription'>
-                    {editingRow === word.id ? (
-                    <input
+                        ) : (word.english)}
+                    </td>
+                    <td className='table-col-transcription'>
+                        {editingRow === word.id ? (
+                        <input
                         type="text"
                         name="transcription"
                         value={editedWord.transcription}
                         onChange={handleInputChange}/>
-                ) : (word.transcription)}
-                </td>
-                <td className='table-col-russian'>
-                    {editingRow === word.id ? (
-                    <input
+                        ) : (word.transcription)}
+                    </td>
+                    <td className='table-col-russian'>
+                        {editingRow === word.id ? (
+                        <input
                         type="text"
                         name="russian"
                         value={editedWord.russian}
                         onChange={handleInputChange}/>
-                ) : (word.russian)}
-                </td>
-                <td className='table-col-tags'>{
-                    editingRow === word.id ? (
-                    <input
+                        ) : (word.russian)}
+                    </td>
+                    <td className='table-col-tags'>
+                        {editingRow === word.id ? (
+                        <input
                         type="text"
                         name="tags"
                         value={editedWord.tags}
                         onChange={handleInputChange}/>
-                ) : (word.tags)}
-                </td>
-                <td className='table-col-comments'>{
-                    editingRow === word.id ? (
-                    <input
+                        ) : (word.tags)}
+                    </td>
+                    <td className='table-col-comments'>
+                        {editingRow === word.id ? (
+                        <input
                         type="text"
                         name="comments"
                         value={editedWord.comments}
                         onChange={handleInputChange}/>
-                ) : (word.comments)}
-                </td>
-                <td>
-                {editingRow === word.id ? (
-                    <div className='editing-buttons'>
-                    <button className='save-btn' onClick={saveBtn}></button>
-                    <button className='cancel-btn' onClick={cancelBtn}></button>
-                    </div>
-                ) : (
-                    <div className='editing-buttons'>
-                        <button className='edit-btn' onClick={() => editBtn (word.id)}></button>
-                        <button className='delete-btn'></button>
-                    </div>
-                )}
-                </td>
-            </tr>
-        ))}
-    </tbody>
-    </table>
+                        ) : (word.comments)}
+                    </td>
+                    <td>
+                        {editingRow === word.id ? (
+                        <div className='editing-buttons'>
+                            <button className='save-btn' onClick={saveBtn}></button>
+                            <button className='cancel-btn' onClick={cancelBtn}></button>
+                        </div>
+                        ) : (
+                        <div className='editing-buttons'>
+                            <button className='edit-btn' onClick={() => editBtn (word.id)}></button>
+                            <button className='delete-btn'></button>
+                        </div>
+                        )}
+                    </td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
     </div>
     )
 }

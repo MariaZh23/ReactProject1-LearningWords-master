@@ -1,6 +1,7 @@
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import Slider from '../Slider/Slider'
+import ProgressInfo from '../ProgressInfo/ProgressInfo'
 import '../App/App.scss'
 import MainPageTable from '../MainPageTable/MainPageTable'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
@@ -12,6 +13,7 @@ function App() {
     <Routes>
     <Route path="/" element= { < MainPageTable/> } />
     <Route path="/flashcard" element= { < Slider/> } />
+    <Route path="/results" element= { < ProgressInfo/> } />
     <Route path="*" element= { < NotFoundPage/> } />
     </Routes>
     <Footer />

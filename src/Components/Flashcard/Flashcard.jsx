@@ -7,10 +7,17 @@ export default function Flashcard({ currentCard, setWordsCount }) {
     }, [currentCard]
   );
   const [showTranslation, setShowTranslation] = useState(false);
+  const [studied, setStudied] = useState(false);
   const showTranslationBtn = () => {
-    setShowTranslation(true);
-    setWordsCount((prevCount)=> prevCount + 1);
+    if (!showTranslation && !studied) {
+      setWordsCount((prevCount) => prevCount + 1);
+      setStudied(true);
+      setShowTranslation(true);
+    } else {
+          setShowTranslation(true);
+    }
   };
+
   return (
     <div className="flash-card-container">
       <div className="flash-card-wrapper">

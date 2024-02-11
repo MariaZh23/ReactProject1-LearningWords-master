@@ -19,6 +19,10 @@
         .table-col-english, .table-col-transcription, .table-col-russian, .table-col-tags, .table-col-comments{
             border-right: $border-color;
         }
+        .invalid-input {
+            background-color: rgb(231, 201, 199);
+            border: 1px solid red;
+          }
     }
 }
 tbody td{
