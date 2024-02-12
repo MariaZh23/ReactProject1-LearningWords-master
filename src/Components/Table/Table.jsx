@@ -3,7 +3,6 @@ import wordsData from '../words-data.json';
 import { useState } from 'react';
 
 export default function Table() {
-    const [editingRow, setEditingRow] = useState(null);
     const [editedWord, setEditedWord] = useState({
         english: "",
         transcription: "",
@@ -11,6 +10,8 @@ export default function Table() {
         tags: "",
         comments: ""
     });
+    const [commentValue, setCommentValue] = useState("");
+    const [editingRow, setEditingRow] = useState(null);
     const editBtn = (id) => {
         const wordToEdit = wordsData.find((word) => word.id === id);
         setEditingRow(id);
@@ -115,12 +116,15 @@ export default function Table() {
                         ) : (word.tags)}
                     </td>
                     <td className='table-col-comments'>
-                        {editingRow === word.id ? (
+                        {
+                        editingRow === word.id ? (
                         <input
                         type="text"
                         name="comments"
-                        value={editedWord.comments}
-                        onChange={handleInputChange}/>
+                        value={editingRow === word.id ? editedWord.comments : commentValue}
+                        onChange={(e) => {
+                            setCommentValue(e.target.value);
+                        }}/>
                         ) : (word.comments)}
                     </td>
                     <td>
