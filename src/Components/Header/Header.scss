@@ -31,11 +31,11 @@ header{
                     padding-bottom: 5px;
                     border: 2px solid rgb(76, 106, 93);
                     border-radius: 0.5em;
-                    background: linear-gradient(to right, #ed818a, #8c90fb);
+                    background: linear-gradient(to right, #ed818a, #55659c);
                     color: white;
                     cursor: pointer;
                     &:hover, &:active {
-                        background: linear-gradient(to left, #ed818a, #8c90fb);
+                        background: linear-gradient(to left, #ed818a, #55659c);
                     }
                     a {
                         padding: 0.925em;

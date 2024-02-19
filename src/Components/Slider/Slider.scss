@@ -9,7 +9,7 @@
         cursor: pointer;
     }
 }
-.wordsCounter{
+.words-counter{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +20,7 @@
         width: 60px;
         height: 60px;
     }
-    .wordsCounterInfo{
+    .words-counter__info{
         font: 2em sans-serif;
     }
 }

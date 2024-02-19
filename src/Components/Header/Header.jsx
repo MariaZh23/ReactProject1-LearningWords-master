@@ -8,6 +8,7 @@ export default function Header() {
         <nav className='header-nav'>
           <ul className='header-nav-list'>
             <li className='header-nav-list-item'><Link to="/">Главная</Link></li>
+            <li className='header-nav-list-item'><Link to="/table">Таблица</Link></li>
             <li className='header-nav-list-item'><Link to="/flashcard">Карточки</Link></li>
             <li className='header-nav-list-item'><Link to="/results">Результаты</Link></li>
           </ul>

@@ -3,15 +3,20 @@
 
 .table-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    
+    align-items: center;
     font-size: 1.5em;
-    background-color: rgb(202, 235, 238);
+   
     .table-body {
-        width: 100%;
+        width: 90%;
         margin: 5px;
         border: $border-color;
+        background-color: rgb(202, 235, 238);
         .table-head-items{
             border-bottom: $border-color;
+            background-color: rgb(47, 53, 65);
+            color: aliceblue;
         }
         .table-col-number{
             border-right: $border-color;
