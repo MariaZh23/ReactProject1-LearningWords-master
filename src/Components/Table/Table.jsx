@@ -2,14 +2,12 @@ import './Table.scss'
 import { Context } from '../../Context/Context';
 import { useState, useContext } from 'react';
 import TableRow from '../TableRow/TableRow';
-
 export default function Table() {
 const {saveWords, setDataServer, deleteWord,  dataServer }= useContext(Context);
 const [editedWord, setEditedWord] = useState({});
 const [commentValue, setCommentValue] = useState("");
 const [editingRow, setEditingRow] = useState(null);
 const [showRows, setShowRows] = useState(10);
-
 const editBtn = (id) => {
 const wordToEdit = dataServer.find((word) => word.id === id);
 if (wordToEdit) {
@@ -17,7 +15,6 @@ setEditedWord(wordToEdit);
 setEditingRow(id);
 }
 };
-
 const saveBtn = () => {
 const validateField = (fieldName, fieldValue) => {
 if (fieldValue.trim() === "") {
@@ -44,11 +41,9 @@ return updatedData;
 setEditingRow(null);
 }
 };
-
 const cancelBtn = () => {
 setEditingRow(null);
 };
-
 const handleInputChange = (e) => {
 if (e.target) {
 const { name, value } = e.target;
@@ -59,7 +54,6 @@ setEditedWord((prevWord) => ({
 e.target.classList.remove('invalid-input');
 }
 };
-
 return (
 <div className='table-container'>
 <table className='table-body'>
