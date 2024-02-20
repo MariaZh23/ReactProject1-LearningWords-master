@@ -5,7 +5,6 @@ import TableRow from '../TableRow/TableRow';
 export default function Table() {
 const {saveWords, setDataServer, deleteWord,  dataServer }= useContext(Context);
 const [editedWord, setEditedWord] = useState({});
-const [commentValue, setCommentValue] = useState("");
 const [editingRow, setEditingRow] = useState(null);
 const [showRows, setShowRows] = useState(10);
 const editBtn = (id) => {
@@ -64,7 +63,6 @@ return (
 <th className='table-col-transcription'>Транскрипция</th>
 <th className='table-col-russian'>Перевод</th>
 <th className='table-col-tags'>Тема</th>
-<th className='table-col-comments'>Комментарии</th>
 <th className='table-col-actions'>Действия</th> 
 </tr>
 </thead>
@@ -81,8 +79,6 @@ editBtn={editBtn}
 handleInputChange={handleInputChange}
 saveBtn={saveBtn}
 cancelBtn={cancelBtn}
-commentValue={commentValue}
-setCommentValue={setCommentValue}
 />
 ))}
 </tbody>

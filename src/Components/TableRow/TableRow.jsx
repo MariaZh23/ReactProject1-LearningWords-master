@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ActionButtons from '../ActionButtons/ActionButtons';
-const TableRow = ({ word, index, editingRow, editedWord, editBtn, handleInputChange, saveBtn, cancelBtn, commentValue, setCommentValue }) => {
+const TableRow = ({ word, index, editingRow, editedWord, editBtn, handleInputChange, saveBtn, cancelBtn }) => {
 return (
 <tr key={word.id}>
 <td className='table-col-number'>{index + 1}</td>
@@ -50,20 +50,6 @@ onChange={handleInputChange}
 />
 ) : (
 word.tags
-)}
-</td>
-<td className='table-col-comments'>
-{editingRow === word.id ? (
-<input
-type="text"
-name="comments"
-value={editingRow === word.id ? editedWord.comments : commentValue}
-onChange={(e) => {
-setCommentValue(e.target.value);
-}}
-/>
-) : (
-word.comments
 )}
 </td>
 <td>
