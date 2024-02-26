@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import ActionButtons from '../ActionButtons/ActionButtons';
+import './TableRow.scss';
+const TableRow = ({ word, index, editingRow, editedWord, editBtn, handleInputChange, saveBtn, cancelBtn, deleteBtn }) => {
+    const [isActiveDelete, setIsActiveDelete] = useState(false);
 
-const TableRow = ({ word, index, editingRow, editedWord, editBtn, handleInputChange, saveBtn, cancelBtn }) => {
+    const handleDeleteActivation = (isActive) => {
+        setIsActiveDelete(isActive);
+    };
+
     return (
-        <tr key={word.id}>
+        <tr key={word.id} className={isActiveDelete ? 'delete-active' : ''}>
             <td className='table-col-number'>{index + 1}</td>
             <td className='table-col-english'> 
                 {editingRow === word.id ? (
@@ -57,7 +63,7 @@ const TableRow = ({ word, index, editingRow, editedWord, editBtn, handleInputCha
                 {editingRow === word.id ? (
                     <ActionButtons saveBtn={saveBtn} cancelBtn={cancelBtn} />
                     ) : (
-                    <ActionButtons editBtn={editBtn} wordId={word.id} />
+                    <ActionButtons editBtn={editBtn} wordId={word.id} deleteBtn={deleteBtn} handleDeleteActivation={handleDeleteActivation} />
                 )}
             </td>
         </tr>

@@ -25,6 +25,27 @@ class GET {
             console.error(e);
         }
     }
+
+    static async addWord(newWord) {
+        try {
+            const resp = await fetch('/api/words/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newWord),
+            });
+            if (resp.ok) {
+                return await resp.json();
+            } else {
+                throw new Error("Ошибка при добавлении слова на сервере");
+            }
+        } catch (error) {
+            console.error('Ошибка при добавлении слова:', error);
+            return null;
+        }
+    }
+
     static async updateWord(updatedWord) {
         try {
             const resp = await fetch(`/api/words/${updatedWord.id}/update`, {

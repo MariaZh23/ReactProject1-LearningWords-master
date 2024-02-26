@@ -31,24 +31,4 @@
 tbody td{
     border-top: $border-color;
 }
-.edit-btn{
-    @include table-btn();
-    background-image: url(/src/assets/button_edit.svg);
-}
-.cancel-btn{
-    @include table-btn();
-    background-image: url(/src/assets/button_cancel.svg);
-}
-.save-btn{
-    @include table-btn();
-    background-image: url(/src/assets/button_save.svg);
-}
-.delete-btn{
-    @include table-btn();
-    background-image: url(/src/assets/button_delete.svg);
-}
-.editing-buttons{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
+

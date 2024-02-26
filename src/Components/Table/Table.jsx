@@ -2,9 +2,9 @@ import './Table.scss'
 import { Context } from '../../Context/Context';
 import { useState, useContext } from 'react';
 import TableRow from '../TableRow/TableRow';
-
+import AddWordButton from '../AddWordButton/AddWordButton';
 export default function Table() {
-    const {saveWords, setDataServer, deleteWord,  dataServer }= useContext(Context);
+    const {saveWords, setDataServer, dataServer }= useContext(Context);
     const [editedWord, setEditedWord] = useState({});
     const [editingRow, setEditingRow] = useState(null);
     const [showRows, setShowRows] = useState(10);
@@ -60,7 +60,10 @@ export default function Table() {
     };
 
 return (
+
     <div className='table-container'>
+        <AddWordButton/>
+        <div id='modal-root'></div>
         <table className='table-body'>
             <thead className='table-head'>
                 <tr className='table-head-items'>
@@ -70,8 +73,8 @@ return (
                     <th className='table-col-russian'>Перевод</th>
                     <th className='table-col-tags'>Тема</th>
                     <th className='table-col-actions'>Действия</th> 
-                </tr>
-            </thead>
+                </tr>            
+                </thead>
             <tbody>
                 {dataServer.slice(0, showRows).map((word, index) => (
                     <TableRow
@@ -89,7 +92,10 @@ return (
                 ))}
             </tbody>
             </table>
+            <div>
             <button onClick={() => setShowRows(showRows + 10)}>Показать еще</button>
+            <button onClick={() => setShowRows(showRows - 10)}>Убрать</button>
+            </div>
         </div>
     )
 }
