@@ -7,7 +7,7 @@ import { ContextComponent } from './Context/Context'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ContextComponent >
-    <App />
+      <App />
     </ContextComponent>
   </React.StrictMode>,
 )
