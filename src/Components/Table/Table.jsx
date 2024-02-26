@@ -51,11 +51,28 @@ export default function Table() {
     const handleInputChange = (e) => {
         if (e.target) {
             const { name, value } = e.target;
+            if (name === 'english') {
+                if (!/^[a-zA-Z]+$/.test(value)) {
+                    e.target.value = value.replace(/[^a-zA-Z]/g, ''); 
+                    e.target.classList.add('invalid-input');
+                    alert('Пожалуйста, используйте латиницу');
+                } else {
+                    e.target.classList.remove('invalid-input');
+                }
+            }
+            if (name === 'russian') {
+                if (!/^[а-яА-Я]+$/.test(value)) {
+                    e.target.value = value.replace(/[^а-яА-Я]/g, '');
+                    e.target.classList.add('invalid-input');
+                    alert('Пожалуйста, используйте кириллицу');
+                } else {
+                    e.target.classList.remove('invalid-input');
+                }
+            }
             setEditedWord((prevWord) => ({
                 ...prevWord,
-                [name]: value,
+                [name]: e.target.value,
             }));
-            e.target.classList.remove('invalid-input');
         }
     };
 

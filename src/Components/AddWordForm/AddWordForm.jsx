@@ -15,6 +15,22 @@ export default function AddWordForm() {
         setTheme('');
     };
 
+    const handleEnglishInput = (e) => {
+        if (!/^[a-zA-Z ]+$/.test(e.target.value)) {
+            alert('Пожалуйста, используйте латиницу для поля "Слово"');
+        } else {
+            setWord(e.target.value);
+        }
+    };
+
+    const handleRussianInput = (e) => {
+        if (!/^[а-яА-Я ]+$/.test(e.target.value)) {
+            alert('Пожалуйста, используйте кириллицу для поля "Перевод"');
+        } else {
+            setTranslation(e.target.value);
+        }
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newWord = {
@@ -40,10 +56,10 @@ export default function AddWordForm() {
         <>
         {!success && (
             <form onSubmit={handleSubmit}>
-                <input type="text" value={english} onChange={(e) => setWord(e.target.value)} placeholder="Слово" />
-                <input type="text" value={transcription} onChange={(e) => setTranscription(e.target.value)} placeholder="Транскрипция" />
-                <input type="text" value={russian} onChange={(e) => setTranslation(e.target.value)} placeholder="Перевод" />
-                <input type="text" value={tags} onChange={(e) => setTheme(e.target.value)} placeholder="Тема" />
+                <input type="text" value={english} onChange={handleEnglishInput} placeholder="Слово" />
+                    <input type="text" value={transcription} onChange={(e) => setTranscription(e.target.value)} placeholder="Транскрипция" />
+                    <input type="text" value={russian} onChange={handleRussianInput} placeholder="Перевод" />
+                    <input type="text" value={tags} onChange={(e) => setTheme(e.target.value)} placeholder="Тема" />
                 <button type="submit">Сохранить</button>
             </form>
         )}
